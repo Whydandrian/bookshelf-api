@@ -2,7 +2,8 @@ const { nanoId} = require('nanoid');
 const books = require('./books');
 
 const addBookHandler = (request, h) {
-  const { name, year, author, summary, publisher, pageCount, readPage, reading } = request.payload;
+  const { name, year, author, summary,
+    publisher, pageCount, readPage, reading } = request.payload;
 
   const id = nanoid(16);
   const finished = pageCount === readPage ? true : false;
@@ -10,8 +11,9 @@ const addBookHandler = (request, h) {
   const updatedAt = insertedAt;
 
   const newBook = {
-    id, name, year, summary, publisher, pageCount,
-    readPage, finished, reading, insertedAt, updatedAt
+    id, name, year, author, summary,
+    publisher, pageCount, readPage, finished, reading,
+    insertedAt, updatedAt
   };
 
   if (!newBook.name || newBook.name === undefined) {
@@ -57,4 +59,9 @@ const addBookHandler = (request, h) {
   return response;
 
 
+};
+
+
+module.exports = {
+  addBookHandler
 };
