@@ -62,12 +62,14 @@ const addBookHandler = (request, h) => {
 };
 
 
-const getAllBooksHandler = () => ({
-  status: 'success',
-  data: {
-    books,
-  },
-});
+const getAllBooksHandler = (request, h) => {
+  const response = h.response({
+    status: 'success',
+    data: books,
+  });
+  response.code(200);
+  return response;
+};
 
 
 
