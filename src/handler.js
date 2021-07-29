@@ -72,5 +72,5 @@ const getAllBooksHandler = () => ({
 
 
 module.exports = {
-  addBookHandler
+  addBookHandler, getAllBooksHandler
 };
