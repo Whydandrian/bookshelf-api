@@ -14,7 +14,7 @@ const addBookHandler = (request, h) => {
     const response = h.response({
       "status": "fail",
       "message": "Gagal menambahkan buku. Mohon isi nama buku"
-  });
+    });
     response.code(400);
     return response;
   }
@@ -64,31 +64,40 @@ const addBookHandler = (request, h) => {
 
 const getAllBooksHandler = (request, h) => {
 
-if (books.length > 0) {
-  const response = h.response({
-    status: 'success',
-    data: {
-      books: books.map((book) => ({
-        id:book.id,
-        name:book.name,
-        publisher:book.publisher
-      }))
-    },
-  });
-  response.code(200);
-  return response;
+  if (books.length > 0) {
+    const response = h.response({
+      status: 'success',
+      data: {
+        books: books.map((book) => ({
+          id: book.id,
+          name: book.name,
+          publisher: book.publisher
+        }))
+      },
+    });
+    response.code(200);
+    return response;
 
-} else if (books.length === 0){
+  } else if (books.length === 0) {
 
-  const response = h.response({
-    status: 'success',
-    data: {
-      books: [],
-    },
-  });
-  response.code(200);
-  return response;
-}
+    const response = h.response({
+      status: 'success',
+      data: {
+        books: [],
+      },
+    });
+    response.code(200);
+    return response;
+  }
+};
+
+const getBookByIdHandler = (request, h) => {
+  const { bookId } = request.params;
+
+  const book = books.filter((book) => book.id === bookId)[0];
+
+  
+
 };
 
 
