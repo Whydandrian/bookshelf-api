@@ -62,6 +62,15 @@ const addBookHandler = (request, h) => {
 };
 
 
+const getAllBooksHandler = () => ({
+  status: 'success',
+  data: {
+    books,
+  },
+});
+
+
+
 module.exports = {
   addBookHandler
 };
