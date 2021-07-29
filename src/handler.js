@@ -77,7 +77,9 @@ if (books.length > 0) {
   });
   response.code(200);
   return response;
-} else if (books.length === 0)
+
+} else if (books.length === 0){
+
   const response = h.response({
     status: 'success',
     data: {
@@ -86,7 +88,7 @@ if (books.length > 0) {
   });
   response.code(200);
   return response;
-  
+}
 };
 
 
