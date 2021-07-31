@@ -117,6 +117,11 @@ const getBookByIdHandler = (request, h) => {
 };
 
 const editBookByIdHandler = (request, h) => {
+  const {id} = request.params;
+
+  const {name, year, author, summary,
+         publisher, pageCount, readPage,
+        reading} = request.payload;
   
 };
 
