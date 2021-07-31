@@ -164,7 +164,11 @@ const editBookByIdHandler = (request, h) => {
   });
   response.code(404);
   return response;
+};
 
+const deleteBooksByIdHandler = (request, h) => {
+  const { id } = request.params;
+  const index = books.findIndex((book) => book.id === id);
 };
 
 
