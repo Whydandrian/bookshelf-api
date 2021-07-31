@@ -18,7 +18,7 @@ const routes = [
   },
   {
     method: 'PUT',
-    path: '/notes/{id}',
+    path: '/books/{id}',
     handler: () => {},
   },
 ];
