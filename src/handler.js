@@ -139,6 +139,13 @@ const editBookByIdHandler = (request, h) => {
     return response;
   }
 
+  const response = h.request({
+    status: 'fail',
+    message: 'Gagal memperbarui catatan. Id tidak ditemukan',
+  });
+  response.code(404);
+  return response;
+
 };
 
 
