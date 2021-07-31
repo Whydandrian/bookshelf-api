@@ -115,6 +115,12 @@ const getBookByIdHandler = (request, h) => {
 
 
 };
+
+const editBookByIdHandler = (request, h) => {
+  
+};
+
+
 module.exports = {
   addBookHandler, getAllBooksHandler, getBookByIdHandler
 };
