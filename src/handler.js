@@ -94,7 +94,7 @@ const getBookByIdHandler = (request, h) => {
   const { bookId } = request.params;
   const book = books.filter((b) => b.id === bookId)[0]
 
-  if (typeof(book) !== 'undefined') {
+  if (typeof (book) !== 'undefined') {
     const response = h.response({
       status: 'ok',
       data: {
@@ -111,19 +111,34 @@ const getBookByIdHandler = (request, h) => {
   });
   response.code(404);
   return response;
-
-
-
 };
 
 const editBookByIdHandler = (request, h) => {
-  const {id} = request.params;
+  const { id } = request.params;
 
-  const {name, year, author, summary,
-         publisher, pageCount, readPage,
-        reading} = request.payload;
+  const { name, year, author, summary,
+    publisher, pageCount, readPage,
+    reading } = request.payload;
   const updatedAt = new Date().toISOString();
-  
+  const index = books.findIndex((book) => book.id === id);
+
+  if (index !== -1) {
+    books[index] = {
+      ...books[index],
+      name, year, author,
+      summary, publisher,
+      pageCount, readPage,
+      reading
+    };
+
+    const response = h.response({
+      "status": "success",
+      "message": "Buku berhasil diperbarui"
+    });
+    response.code(200);
+    return response;
+  }
+
 };
 
 
