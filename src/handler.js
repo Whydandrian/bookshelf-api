@@ -41,7 +41,7 @@ const addBookHandler = (request, h) => {
   if (isSuccess) {
     const response = h.response({
       status: 'success',
-      message: 'Buku berhasil ditambahkan!',
+      message: 'Buku berhasil ditambahkan',
       data: {
         bookId: id,
       },
@@ -77,17 +77,16 @@ const getAllBooksHandler = (request, h) => {
     response.code(200);
     return response;
 
-  } else if (books.length === 0) {
-
-    const response = h.response({
-      status: 'success',
-      data: {
-        books: [],
-      },
-    });
-    response.code(200);
-    return response;
   }
+  
+  const response = h.response({
+    status: 'success',
+    data: {
+      books: [],
+    },
+  });
+  response.code(200);
+  return response;
 };
 
 const getBookByIdHandler = (request, h) => {
